@@ -1,0 +1,139 @@
+/* Base & Fonts */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #ffe4f9;
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Title */
+.title {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #ff4da6;
+  animation: bounceIn 0.8s ease-out;
+}
+
+/* Container */
+.todo-app {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  width: 350px;
+}
+
+/* Form */
+#todo-form {
+  display: flex;
+  margin-bottom: 1rem;
+}
+#todo-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid #ffb3d9;
+  border-radius: 30px 0 0 30px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+#todo-input:focus {
+  outline: none;
+  border-color: #ff4da6;
+}
+#todo-form button {
+  background: #ff4da6;
+  border: none;
+  padding: 0 1.2rem;
+  border-radius: 0 30px 30px 0;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+#todo-form button:hover {
+  transform: scale(1.1) rotate(-15deg);
+  background: #ff1a75;
+}
+
+/* List */
+#todo-list {
+  list-style: none;
+  max-height: 300px;
+  overflow-y: auto;
+}
+#todo-list li {
+  background: #fff0f8;
+  margin-bottom: 0.75rem;
+  padding: 0.6rem 1rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Completed */
+#todo-list li.completed span {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Icons inside each <li> */
+#todo-list li i.fa-circle-check {
+  margin-right: 0.75rem;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+}
+#todo-list li i.fa-circle-check:hover {
+  color: #ff4da6;
+  transform: scale(1.2);
+}
+#todo-list li i.fa-trash {
+  margin-left: auto;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+}
+#todo-list li i.fa-trash:hover {
+  color: #ff4da6;
+  transform: scale(1.2);
+}
+
+/* Animations */
+@keyframes bounceIn {
+  0%   { transform: scale(0.5); opacity: 0; }
+  60%  { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+li.removing {
+  animation: shake 0.3s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .todo-app {
+    width: 90vw;
+    padding: 1rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  #todo-input {
+    font-size: 0.9rem;
+  }
+}
